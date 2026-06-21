@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Premium Dark Theme */
+    --background: 240 10% 4%; /* Very deep slate/black */
+    --foreground: 0 0% 98%;
+    --card: 240 10% 8%; /* Slightly lighter than background */
+    --card-foreground: 0 0% 98%;
+    --primary: 270 100% 60%; /* Vibrant neon purple */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 10% 12%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 10% 12%;
+    --muted-foreground: 240 5% 65%;
+    --accent: 190 100% 50%; /* Vibrant cyan */
+    --accent-foreground: 0 0% 100%;
+    --border: 240 10% 15%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+/* Glassmorphism utilities */
+.glass {
+  @apply bg-card/50 backdrop-blur-lg border border-white/10 shadow-2xl;
+}
+
+.glass-panel {
+  @apply bg-card/70 backdrop-blur-xl border border-white/10 shadow-2xl;
+}
+
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
+}
+
+.btn-primary {
+  @apply bg-gradient-to-r from-primary to-accent text-white font-medium px-4 py-2 rounded-md hover:opacity-90 hover:scale-[1.02] hover:shadow-[0_0_15px_rgba(153,51,255,0.4)] transition-all duration-300 shadow-lg shadow-primary/20;
+}
+
+.btn-secondary {
+  @apply bg-secondary text-secondary-foreground font-medium px-4 py-2 rounded-md hover:bg-secondary/80 hover:scale-[1.02] transition-all duration-300;
+}
+
+.input-glass {
+  @apply w-full bg-background/50 border border-border rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/60 focus:border-transparent placeholder:text-muted-foreground backdrop-blur-sm transition-all duration-300 hover:border-primary/50;
+}
